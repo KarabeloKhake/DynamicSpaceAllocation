@@ -97,7 +97,14 @@ public class Login extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        Intent intent = new Intent(Login.this, PersonalDetails.class);
 
+        if(requestCode == SCAN_CODE) {
+            if(resultCode == RESULT_OK) {
+                assert data != null;
+                String sCode = data.getStringExtra("userCode");
+            } //end if
+        } //end if
     } //end onActivityResult()
 
     //Custom Methods
