@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Ethnic Array-->
+    <string-array name="ethnic_array">
+        <item>--Select Race--</item>
+        <item>African</item>
+        <item>Coloured</item>
+        <item>Indian</item>
+        <item>White</item>
+    </string-array>
+
+    <!--Gender Array-->
+    <string-array name="gender_array">
+        <item>--Select Gender--</item>
+        <item>Female</item>
+        <item>Male</item>
+    </string-array>
+
+    <!--Province Array-->
+    <string-array name="province_array">
+        <item>Eastern Cape</item>
+        <item>Free State</item>
+        <item>Gauteng</item>
+        <item>Kwazulu Natal</item>
+        <item>Limpopo</item>
+        <item>Mpumalanga</item>
+        <item>Northern Cape</item>
+        <item>North West</item>
+        <item>Western Cape</item>
+    </string-array>
+</resources>

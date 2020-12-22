@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/logout"
+        android:icon="@drawable/ic_lock"
+        android:title="@string/text_logout"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="100"/>
+    <item android:id="@+id/update"
+        android:icon="@drawable/ic_edit"
+        android:title="@string/text_update"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="101"/>
+</menu>

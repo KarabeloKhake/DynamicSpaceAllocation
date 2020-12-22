@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Dynamic Space Allocation</string>
+
+    <!--Buttons-->
+    <string name="button_login">LOGIN</string>
+    <string name="button_next">NEXT</string>
+    <string name="button_reset">RESET PASSWORD</string>
+    <string name="button_register">REGISTER</string>
+    <string name="button_update">UPDATE</string>
+
+    <!--Hints-->
+    <string name="hint_city">City/Town</string>
+    <string name="hint_email">Email Address</string>
+    <string name="hint_ethnic_group">Ethnic Group</string>
+    <string name="hint_first_name">First Name</string>
+    <string name="hint_home_address">Home Address</string>
+    <string name="hint_id_number">ID Number</string>
+    <string name="hint_last_name">Last Name</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_province">Province</string>
+    <string name="hint_retype">Retype Password</string>
+    <string name="hint_telephone_number">Telephone Number</string>
+
+    <!--Texts-->
+    <string name="text_add_qualification">Add Qualification</string>
+    <string name="text_checking_credentials">Busy checking login credentials…please wait</string>
+    <string name="text_content_description">TODO</string>
+    <string name="text_email">Enter your registered email address to send a password reset link.</string>
+    <string name="text_library_capacity">Library Capacity</string>
+    <string name="text_lecturer">Lecturer</string>
+    <string name="text_loading">Loading…please wait</string>
+    <string name="text_logging_lecturer_out">Logging lecturer out…please wait</string>
+    <string name="text_logging_in_lecturer">Logging in lecturer…please wait</string>
+    <string name="text_logging_student_out">Logging student out…please wait</string>
+    <string name="text_logging_in_student">Logging in student…please wait</string>
+    <string name="text_logout">Logout</string>
+    <string name="text_gender">Gender</string>
+    <string name="text_race">Race</string>
+    <string name="text_register_here">Register Here</string>
+    <string name="text_registering_lecturer">Registering new lecturer…please wait</string>
+    <string name="text_registering_student">Registering new student…please wait</string>
+    <string name="text_reset_link">Sending reset link…please wait</string>
+    <string name="text_reset_password">Forgot password? Reset Here</string>
+    <string name="text_student">Student</string>
+    <string name="text_update">Update</string>
+    <string name="text_user">WHAT ARE YOU?</string>
+    <string name="text_welcome">WELCOME</string>
+</resources>
