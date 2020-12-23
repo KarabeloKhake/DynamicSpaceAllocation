@@ -102,7 +102,8 @@ public class Login extends AppCompatActivity {
         if(requestCode == SCAN_CODE) {
             if(resultCode == RESULT_OK) {
                 assert data != null;
-                String sCode = data.getStringExtra("userCode");
+
+                startActivity(intent.putExtra("code", data.getStringExtra("userCode")));
             } //end if
         } //end if
     } //end onActivityResult()
