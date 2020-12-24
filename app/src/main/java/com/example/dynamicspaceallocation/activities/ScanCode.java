@@ -3,6 +3,7 @@ package com.example.dynamicspaceallocation.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
@@ -38,7 +39,13 @@ public class ScanCode extends AppCompatActivity {
         svScanner = findViewById(R.id.svScanner);
         tvCode = findViewById(R.id.tvCode);
 
-        initialiseDetectorsAndSources();
+        sBarcode = "216008192";
+
+        Intent intent = new Intent();
+        intent.putExtra("barcode", sBarcode);
+        setResult(RESULT_OK, intent);
+
+//        initialiseDetectorsAndSources();
     } //end onCreate()
 
     //Custom Methods
@@ -86,6 +93,7 @@ public class ScanCode extends AppCompatActivity {
 
             @Override
             public void receiveDetections(Detector.Detections<Barcode> detections) {
+                final Intent intent = new Intent();
                 final SparseArray<Barcode> barcodes = detections.getDetectedItems();
 
                 if(barcodes.size() != 0) {
@@ -93,25 +101,38 @@ public class ScanCode extends AppCompatActivity {
 
                         @Override
                         public void run() {
-                        if(barcodes.valueAt(0).email != null) {
+                            barcodes.valueAt(0);
                             tvCode.removeCallbacks(null);
                             sBarcode = barcodes.valueAt(0).email.address;
 //                            tvCode.setText(sBarcode);
+                            intent.putExtra("barcode", sBarcode);
                             toneGenerator.startTone(ToneGenerator.TONE_CDMA_PIP, 150);
 
                             //send the code back to the login activity
-                        } //end if
-                        else {
-                            sBarcode = barcodes.valueAt(0).displayValue;
-//                            tvCode.setText(sBarcode);
-                            toneGenerator.startTone(ToneGenerator.TONE_CDMA_PIP, 150);
-
-                            //send the code back to the login activity
-                        } //end else
-                        }
+                            setResult(RESULT_OK,intent);
+                        } //end run()
                     });
                 } //end if
             } //end receiveDetections()
         });
     } //end initialiseDetectorsAndSources()
 } //end class ScanCode
+
+//    @Override
+//    public void run() {
+//        if(barcodes.valueAt(0).email != null) {
+//            tvCode.removeCallbacks(null);
+//            sBarcode = barcodes.valueAt(0).email.address;
+////                            tvCode.setText(sBarcode);
+//            toneGenerator.startTone(ToneGenerator.TONE_CDMA_PIP, 150);
+//
+//            //send the code back to the login activity
+//        } //end if
+//        else {
+//            sBarcode = barcodes.valueAt(0).displayValue;
+////                            tvCode.setText(sBarcode);
+//            toneGenerator.startTone(ToneGenerator.TONE_CDMA_PIP, 150);
+//
+//            //send the code back to the login activity
+//        } //end else
+//    }

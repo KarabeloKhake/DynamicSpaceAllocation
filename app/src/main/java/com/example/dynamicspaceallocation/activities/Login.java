@@ -41,7 +41,7 @@ public class Login extends AppCompatActivity {
     TextInputEditText etEmailAddress, etPassword;
     TextInputLayout ilEmailAddress, ilPassword;
     TextView tvForgotPassword, tvRegisterHere;
-    final int SCAN_CODE = 1;
+    private final int SCAN_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,16 +94,16 @@ public class Login extends AppCompatActivity {
     } //end onCreate()
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         Intent intent = new Intent(Login.this, PersonalDetails.class);
 
         if(requestCode == SCAN_CODE) {
             if(resultCode == RESULT_OK) {
-                assert data != null;
-
-                startActivity(intent.putExtra("code", data.getStringExtra("userCode")));
+//                assert data != null;
+                intent.putExtra("sBarcode", data.getStringExtra("barcode"));
+                startActivity(intent);
             } //end if
         } //end if
     } //end onActivityResult()

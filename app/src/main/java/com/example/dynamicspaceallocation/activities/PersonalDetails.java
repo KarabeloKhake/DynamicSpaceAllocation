@@ -30,8 +30,9 @@ public class PersonalDetails extends AppCompatActivity {
     Spinner spGender, spRace;
     TextView tvGender, tvRace;
     private String[] sGenderList, sProvinceList, sRaceList;     //holds list of gender & race items
-    private String sGender, sProvince, sRace;                   //stores a gender & race item obtained from their respective lists
+    private String sBarcode, sGender, sProvince, sRace;         //stores a gender & race item obtained from their respective lists
     ArrayAdapter<String> aGender, aProvince, aRace;             //adapters for holding gender & race arrays
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,9 @@ public class PersonalDetails extends AppCompatActivity {
         spRace = findViewById(R.id.spRace);
         tvGender = findViewById(R.id.tvGender);
         tvRace = findViewById(R.id.tvRace);
+
+        //get the user barcode
+        sBarcode = getIntent().getStringExtra("sBarcode");
 
         genderSpinner(spGender);
         raceSpinner(spRace);
@@ -147,6 +151,7 @@ public class PersonalDetails extends AppCompatActivity {
                         intent.putExtra("city", etCity.getText().toString());
                         intent.putExtra("homeAddress", etHomeAddress.getText().toString());
                         intent.putExtra("province", sProvince);
+                        intent.putExtra("userCode", sBarcode);
 
                         startActivity(intent);
                     } //end if

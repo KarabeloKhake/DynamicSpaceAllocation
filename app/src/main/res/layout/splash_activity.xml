@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/colorPrimaryLight"
+    style="@style/AppTheme.NoActionBar"
     tools:context=".activities.Splash">
 
     <ProgressBar

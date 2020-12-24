@@ -37,7 +37,7 @@ public class Register extends AppCompatActivity {
     private TextView tvLoad;
     private final String USERS = "com.example.dynamicspaceallocation.Users";
     TextView tvUserCode, tvUserType;
-    String sFirstName, sLastName, sCity, sHomeAddress, sIdNumber, sProvince, sGender, sRace, sUserType;
+    String sFirstName, sLastName, sCity, sHomeAddress, sIdNumber, sProvince, sGender, sRace, sUserCode, sUserType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +70,12 @@ public class Register extends AppCompatActivity {
         sRace = getIntent().getStringExtra("race");
         sHomeAddress = getIntent().getStringExtra("homeAddress");
         sProvince = getIntent().getStringExtra("province");
+        sUserCode = getIntent().getStringExtra("userCode");
+
+        if(sUserCode.length() == 5)
+            sUserType = "Lecturer";
+        else if(sUserCode.length() == 9)
+            sUserType = "Student";
 
         etEmail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -149,6 +155,10 @@ public class Register extends AppCompatActivity {
                                 editor.putString("emailAddress", etEmail.getText().toString());
                                 editor.putString("telNumber", sTelNumber);
                                 editor.putString("password", sRetype);
+                                if(sUserType.equals("Lecturer"))
+                                    editor.putString("staffNumber", sUserCode);
+                                else
+                                    editor.putString("studentNumber", sUserCode);
                                 editor.putString("userType", sUserType);
                                 editor.apply();
 
@@ -160,6 +170,10 @@ public class Register extends AppCompatActivity {
                                 AppClass.user.setProperty("homeAddress", sFirstName);
                                 AppClass.user.setProperty("province", sFirstName);
                                 AppClass.user.setPassword(sRetype);
+                                if(sUserType.equals("Lecturer"))
+                                    AppClass.user.setProperty("staffNumber", sUserCode);
+                                else
+                                    AppClass.user.setProperty("studentNumber", sUserCode);
                                 AppClass.user.setProperty("userType", sFirstName);
 
                                 //register new user

@@ -1,8 +1,8 @@
 package com.example.dynamicspaceallocation.activities.student;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
@@ -17,9 +17,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.backendless.Backendless;
+import com.backendless.BackendlessUser;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
+import com.backendless.persistence.local.UserIdStorageFactory;
 import com.example.dynamicspaceallocation.R;
+import com.example.dynamicspaceallocation.activities.Login;
+import com.example.dynamicspaceallocation.activities.PersonalDetails;
+import com.example.dynamicspaceallocation.activities.ScanCode;
+import com.example.dynamicspaceallocation.activities.Splash;
 
 public class StudentHome extends AppCompatActivity {
 
@@ -46,6 +52,33 @@ public class StudentHome extends AppCompatActivity {
         tvLibrary = findViewById(R.id.tvLibrary);
         tvQualification = findViewById(R.id.tvQualification);
         tvStudentName = findViewById(R.id.tvStudentName);
+
+        String userObjectId = UserIdStorageFactory.instance().getStorage().get();
+
+        //look for this student user in the mobile's storage
+        Backendless.Data.of(BackendlessUser.class).findById(userObjectId, new AsyncCallback<BackendlessUser>() {
+            @Override
+            public void handleResponse(BackendlessUser response) {
+                //user found
+                StringBuilder userNames = new StringBuilder();
+                userNames.append(response.getProperty("lastName"));
+                userNames.append(" ");
+                userNames.append(response.getProperty("firstName"));
+
+                tvStudentName.setText(userNames);
+            } //end handleResponse()
+            @Override
+            public void handleFault(BackendlessFault fault) {
+                Toast.makeText(StudentHome.this, "Error: " + fault.getMessage(), Toast.LENGTH_SHORT).show();
+            } //end handleFault()
+        });
+
+        ivQualification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StudentHome.this, AddQualification.class));
+            } //end onClick()
+        });
     } //end onCreate()
 
     @Override
