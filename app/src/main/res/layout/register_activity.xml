@@ -39,12 +39,12 @@
             style="@style/TextInputLayoutStyle"
             android:layout_width="@dimen/til_width"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_email_top"
+            android:layout_marginTop="@dimen/til_space"
             app:boxBackgroundMode="outline"
             app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvUserCode">
+            app:layout_constraintTop_toBottomOf="@+id/ilUserCode">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEmail"
@@ -136,29 +136,39 @@
             app:layout_constraintTop_toBottomOf="@+id/ilRetypePassword" />
 
         <TextView
-            android:id="@+id/tvUserType"
+            android:id="@+id/tvScanCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_user_top"
-            android:gravity="center_horizontal"
-            android:textColor="@color/colorText"
-            android:textSize="@dimen/text_user_size"
+            android:layout_marginTop="@dimen/text_scan_code_top"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/text_scan_code"
+            android:textSize="@dimen/text_size"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvUserCode"
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ilUserCode"
+            style="@style/TextInputLayoutStyle"
+            android:layout_width="@dimen/til_width"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_user_code"
-            android:gravity="center_horizontal"
-            android:textColor="@color/colorText"
-            android:textSize="@dimen/text_size"
+            android:layout_marginTop="@dimen/til_user_code_top"
+            app:boxBackgroundMode="outline"
+            app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvUserType" />
+            app:layout_constraintTop_toBottomOf="@+id/tvScanCode">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etUserCode"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_height"
+                android:drawableStart="@drawable/ic_person"
+                android:drawablePadding="@dimen/drawable_padding"
+                android:hint="@string/hint_user_code"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

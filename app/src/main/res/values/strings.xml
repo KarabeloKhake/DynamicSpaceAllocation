@@ -20,6 +20,7 @@
     <string name="hint_province">Province</string>
     <string name="hint_retype">Retype Password</string>
     <string name="hint_telephone_number">Telephone Number</string>
+    <string name="hint_user_code">User Code</string>
 
     <!--Texts-->
     <string name="text_add_qualification">Add Qualification</string>
@@ -41,6 +42,7 @@
     <string name="text_registering_student">Registering new student…please wait</string>
     <string name="text_reset_link">Sending reset link…please wait</string>
     <string name="text_reset_password">Forgot password? Reset Here</string>
+    <string name="text_scan_code">SCAN CODE</string>
     <string name="text_student">Student</string>
     <string name="text_update">Update</string>
     <string name="text_user">WHAT ARE YOU?</string>

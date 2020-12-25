@@ -41,7 +41,6 @@ public class Login extends AppCompatActivity {
     TextInputEditText etEmailAddress, etPassword;
     TextInputLayout ilEmailAddress, ilPassword;
     TextView tvForgotPassword, tvRegisterHere;
-    private final int SCAN_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,25 +87,10 @@ public class Login extends AppCompatActivity {
         ivRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivityForResult(new Intent(Login.this, PersonalDetails.class), SCAN_CODE);
+                startActivity(new Intent(Login.this, PersonalDetails.class));
             } //end onClick()
         });
     } //end onCreate()
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        Intent intent = new Intent(Login.this, PersonalDetails.class);
-
-        if(requestCode == SCAN_CODE) {
-            if(resultCode == RESULT_OK) {
-//                assert data != null;
-                intent.putExtra("sBarcode", data.getStringExtra("barcode"));
-                startActivity(intent);
-            } //end if
-        } //end if
-    } //end onActivityResult()
 
     //Custom Methods
     public void btnLogin_onClick(View view) {

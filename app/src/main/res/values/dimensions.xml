@@ -33,6 +33,7 @@
     <dimen name="text_race_top">10dp</dimen>
     <dimen name="text_register_here_top">10dp</dimen>
     <dimen name="text_reset_top">10dp</dimen>
+    <dimen name="text_scan_code_top">20dp</dimen>
     <dimen name="text_size">16sp</dimen>
     <dimen name="text_user_code">5dp</dimen>
     <dimen name="text_user_name_left_margin">10dp</dimen>
@@ -49,5 +50,6 @@
     <dimen name="til_email_top">10dp</dimen>
     <dimen name="til_space">5dp</dimen>
     <dimen name="til_top">20dp</dimen>
+    <dimen name="til_user_code_top">15dp</dimen>
     <dimen name="til_width">250dp</dimen>
 </resources>

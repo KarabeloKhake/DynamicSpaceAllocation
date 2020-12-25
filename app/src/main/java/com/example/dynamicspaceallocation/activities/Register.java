@@ -1,5 +1,6 @@
 package com.example.dynamicspaceallocation.activities;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.animation.Animator;
@@ -30,14 +31,14 @@ import java.util.Objects;
 public class Register extends AppCompatActivity {
 
     ActionBar actionBar;
-    TextInputEditText etEmail, etTelNumber, etPassword, etRetypePassword;
-    TextInputLayout ilEmail, ilTelNumber, ilPassword, ilRetypePassword;
+    TextInputEditText etEmail, etTelNumber, etPassword, etRetypePassword, etUserCode;
+    TextInputLayout ilEmail, ilTelNumber, ilPassword, ilRetypePassword, ilUserCode;
     private View mProgressView;
     private View mRegisterFormView;
-    private TextView tvLoad;
+    private TextView tvScanCode, tvLoad;
     private final String USERS = "com.example.dynamicspaceallocation.Users";
-    TextView tvUserCode, tvUserType;
-    String sFirstName, sLastName, sCity, sHomeAddress, sIdNumber, sProvince, sGender, sRace, sUserCode, sUserType;
+    private String sFirstName, sLastName, sCity, sHomeAddress, sIdNumber, sProvince, sGender, sRace, sUserCode, sUserType;
+    private final int SCAN_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +56,13 @@ public class Register extends AppCompatActivity {
         etRetypePassword = findViewById(R.id.etRetypePassword);
         etTelNumber = findViewById(R.id.etTelNumber);
         ilEmail = findViewById(R.id.ilEmail);
+        etUserCode = findViewById(R.id.etUserCode);
         ilPassword = findViewById(R.id.ilPassword);
         ilRetypePassword = findViewById(R.id.ilRetypePassword);
         ilTelNumber = findViewById(R.id.ilTelNumber);
-        tvUserCode = findViewById(R.id.tvUserCode);
-        tvUserType = findViewById(R.id.tvUserType);
+        ilUserCode = findViewById(R.id.ilUserCode);
+        tvScanCode = findViewById(R.id.tvScanCode);
+        etUserCode.setEnabled(false);
 
         //get the user info from the personal details page
         sCity = getIntent().getStringExtra("city");
@@ -70,12 +73,13 @@ public class Register extends AppCompatActivity {
         sRace = getIntent().getStringExtra("race");
         sHomeAddress = getIntent().getStringExtra("homeAddress");
         sProvince = getIntent().getStringExtra("province");
-        sUserCode = getIntent().getStringExtra("userCode");
 
-        if(sUserCode.length() == 5)
-            sUserType = "Lecturer";
-        else if(sUserCode.length() == 9)
-            sUserType = "Student";
+        tvScanCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivityForResult(new Intent(Register.this, ScanCode.class), SCAN_CODE);
+            }
+        });
 
         etEmail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -109,7 +113,32 @@ public class Register extends AppCompatActivity {
                 } //end if
             }
         });
+        etUserCode.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus) {
+                    validateUserCode(((EditText) v).getText());
+                } //end if
+            }
+        });
     } //end onCreate()
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == SCAN_CODE) {
+            if(resultCode == RESULT_OK) {
+                assert data != null;
+                sUserCode = data.getStringExtra("userCode");
+
+                etUserCode.setText(sUserCode);
+                if(sUserCode.length() == 5)
+                    sUserType = "Lecturer";
+                else if(sUserCode.length() == 9)
+                    sUserType = "Student";
+            } //end if
+        } //end if
+    } //end onActivityForResult()
 
     //Custom Methods
     public void btnRegister_onClick(View view) {
@@ -124,7 +153,8 @@ public class Register extends AppCompatActivity {
 
             //test if all text inputs are empty
             if(!Objects.requireNonNull(etEmail.getText()).toString().isEmpty() && !Objects.requireNonNull(etPassword.getText()).toString().isEmpty() &&
-            !Objects.requireNonNull(etRetypePassword.getText()).toString().isEmpty() && !Objects.requireNonNull(etTelNumber.getText()).toString().isEmpty()) {
+            !Objects.requireNonNull(etRetypePassword.getText()).toString().isEmpty() && !Objects.requireNonNull(etTelNumber.getText()).toString().isEmpty() &&
+                !Objects.requireNonNull(etUserCode.getText()).toString().isEmpty()) {
                 //validate email address
                 if(AppClass.isEmailValid(etEmail.getText().toString())) {
                     ilEmail.setError(null);
@@ -153,6 +183,9 @@ public class Register extends AppCompatActivity {
                                 editor.putString("city", sCity);
                                 editor.putString("homeAddress", sHomeAddress);
                                 editor.putString("emailAddress", etEmail.getText().toString());
+                                editor.putString("race", sRace);
+                                editor.putString("province", sProvince);
+                                editor.putString("gender", sGender);
                                 editor.putString("telNumber", sTelNumber);
                                 editor.putString("password", sRetype);
                                 if(sUserType.equals("Lecturer"))
@@ -162,19 +195,22 @@ public class Register extends AppCompatActivity {
                                 editor.putString("userType", sUserType);
                                 editor.apply();
 
+                                //store data to an online database
                                 AppClass.user.setEmail(etEmail.getText().toString());
                                 AppClass.user.setProperty("firstName", sFirstName);
-                                AppClass.user.setProperty("lastName", sFirstName);
-                                AppClass.user.setProperty("idNumber", sFirstName);
-                                AppClass.user.setProperty("city", sFirstName);
-                                AppClass.user.setProperty("homeAddress", sFirstName);
-                                AppClass.user.setProperty("province", sFirstName);
+                                AppClass.user.setProperty("lastName", sLastName);
+                                AppClass.user.setProperty("idNumber", sIdNumber);
+                                AppClass.user.setProperty("city", sCity);
+                                AppClass.user.setProperty("homeAddress", sHomeAddress);
+                                AppClass.user.setProperty("race", sRace);
+                                AppClass.user.setProperty("province", sProvince);
+                                AppClass.user.setProperty("gender", sGender);
                                 AppClass.user.setPassword(sRetype);
                                 if(sUserType.equals("Lecturer"))
                                     AppClass.user.setProperty("staffNumber", sUserCode);
                                 else
                                     AppClass.user.setProperty("studentNumber", sUserCode);
-                                AppClass.user.setProperty("userType", sFirstName);
+                                AppClass.user.setProperty("userType", sUserType);
 
                                 //register new user
                                 showProgress(true);
@@ -233,6 +269,11 @@ public class Register extends AppCompatActivity {
                     ilTelNumber.setError(null);
                 else
                     ilTelNumber.setError("Tel. number required");
+
+                if(Objects.requireNonNull(etUserCode.getText()).toString().isEmpty())
+                    ilUserCode.setError(null);
+                else
+                    ilUserCode.setError("User code required");
             } //end else
         } //end try
         catch (Exception ex) {
@@ -328,4 +369,13 @@ public class Register extends AppCompatActivity {
         else
             ilTelNumber.setError("Tel. number required");
     } //end validateTelNumber()
+
+    public void validateUserCode(Editable userCode) {
+        //check if input text is empty
+        if(!TextUtils.isEmpty(userCode)) {
+            ilUserCode.setError(null);
+        }
+        else
+            ilEmail.setError("User code required");
+    } //end validateEmail()
 } //end class Register

@@ -28,7 +28,7 @@ public class ScanCode extends AppCompatActivity {
     //This class provides methods to play DTMF tones
     private ToneGenerator toneGenerator;
     private TextView tvCode;
-    private String sBarcode;
+    String sBarcode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class ScanCode extends AppCompatActivity {
         sBarcode = "216008192";
 
         Intent intent = new Intent();
-        intent.putExtra("barcode", sBarcode);
+        intent.putExtra("userCode", sBarcode);
         setResult(RESULT_OK, intent);
 
 //        initialiseDetectorsAndSources();
