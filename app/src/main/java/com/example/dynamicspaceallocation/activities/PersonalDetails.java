@@ -61,7 +61,7 @@ public class PersonalDetails extends AppCompatActivity {
 
         genderSpinner(spGender);
         raceSpinner(spRace);
-        setProvince();
+        provinces();
 
         etCity.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -194,7 +194,7 @@ public class PersonalDetails extends AppCompatActivity {
         } //end catch()
     } //end btnNext()
 
-    public void genderSpinner(Spinner spinner) {
+    private void genderSpinner(Spinner spinner) {
         /*
             the purpose of this method is to populate a gender spinner
             wth gender items from the gender array
@@ -223,7 +223,7 @@ public class PersonalDetails extends AppCompatActivity {
         });
     } //end genderSpinner()
 
-    public void raceSpinner(Spinner spinner) {
+    private void raceSpinner(Spinner spinner) {
         /*
             the purpose of this method is to populate a race spinner
             wth race items from the race array
@@ -253,7 +253,7 @@ public class PersonalDetails extends AppCompatActivity {
 
     } //end raceSpinner()
 
-    public void setProvince() {
+    private void provinces() {
         sProvinceList = getResources().getStringArray(R.array.province_array);
         aProvince = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, sProvinceList);
 
@@ -272,7 +272,7 @@ public class PersonalDetails extends AppCompatActivity {
         });
     } //end setProvinces()
 
-    public void validateCity(Editable city) {
+    private void validateCity(Editable city) {
         //check if input text is empty
         if(!TextUtils.isEmpty(city))
             ilCity.setError(null);
@@ -280,7 +280,7 @@ public class PersonalDetails extends AppCompatActivity {
             ilCity.setError("City/Town required");
     } //end validateCity()
 
-    public void validateHomeAddress(Editable homeAddress) {
+    private void validateHomeAddress(Editable homeAddress) {
         //check if input text is empty
         if(!TextUtils.isEmpty(homeAddress))
             ilHomeAddress.setError(null);
@@ -288,7 +288,7 @@ public class PersonalDetails extends AppCompatActivity {
             ilHomeAddress.setError("Home address required");
     } //end validateHomeAddress()
 
-    public void validateIDNumber(Editable idNumber) {
+    private void validateIDNumber(Editable idNumber) {
         //check if id number text field are empty
         if(!TextUtils.isEmpty(idNumber)) {
             if(Objects.requireNonNull(etIDNumber.getText()).toString().length() == 13) {
@@ -306,7 +306,7 @@ public class PersonalDetails extends AppCompatActivity {
             ilIDNumber.setError("Identity number required");
     } //end validateIDNumber()
 
-    public void validateNames(Editable name, TextInputLayout textInputLayout) {
+    private void validateNames(Editable name, TextInputLayout textInputLayout) {
         //check if input text is empty
         if(!TextUtils.isEmpty(name))
             textInputLayout.setError(null);
@@ -314,7 +314,7 @@ public class PersonalDetails extends AppCompatActivity {
             textInputLayout.setError("Name required");
     } //end validateNames()
 
-    public void validateProvince(Editable province) {
+    private void validateProvince(Editable province) {
         //check if input text is empty
         if(!TextUtils.isEmpty(province))
             ilProvince.setError(null);

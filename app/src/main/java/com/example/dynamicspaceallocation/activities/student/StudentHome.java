@@ -1,6 +1,5 @@
 package com.example.dynamicspaceallocation.activities.student;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.animation.Animator;
@@ -22,10 +21,6 @@ import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.persistence.local.UserIdStorageFactory;
 import com.example.dynamicspaceallocation.R;
-import com.example.dynamicspaceallocation.activities.Login;
-import com.example.dynamicspaceallocation.activities.PersonalDetails;
-import com.example.dynamicspaceallocation.activities.ScanCode;
-import com.example.dynamicspaceallocation.activities.Splash;
 
 public class StudentHome extends AppCompatActivity {
 
@@ -76,7 +71,7 @@ public class StudentHome extends AppCompatActivity {
         ivQualification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(StudentHome.this, AddQualification.class));
+                startActivity(new Intent(StudentHome.this, AddEducation.class));
             } //end onClick()
         });
     } //end onCreate()

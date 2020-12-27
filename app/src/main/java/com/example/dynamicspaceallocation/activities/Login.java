@@ -23,6 +23,7 @@ import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.example.dynamicspaceallocation.R;
 import com.example.dynamicspaceallocation.activities.lecturer.LecturerHome;
+import com.example.dynamicspaceallocation.activities.student.AddEducation;
 import com.example.dynamicspaceallocation.activities.student.StudentHome;
 import com.example.dynamicspaceallocation.app_utility.AppClass;
 import com.google.android.material.textfield.TextInputEditText;
@@ -87,7 +88,7 @@ public class Login extends AppCompatActivity {
         ivRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Login.this, PersonalDetails.class));
+                startActivity(new Intent(Login.this, AddEducation.class));
             } //end onClick()
         });
     } //end onCreate()

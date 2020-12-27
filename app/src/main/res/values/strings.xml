@@ -6,16 +6,22 @@
     <string name="button_next">NEXT</string>
     <string name="button_reset">RESET PASSWORD</string>
     <string name="button_register">REGISTER</string>
+    <string name="button_save_qualification">SAVE QUALIFICATION</string>
     <string name="button_update">UPDATE</string>
 
     <!--Hints-->
+    <string name="hint_academic_institution">Academic Institution</string>
     <string name="hint_city">City/Town</string>
+    <string name="hint_department">Department of</string>
+    <string name="hint_education_level">Education Level</string>
     <string name="hint_email">Email Address</string>
     <string name="hint_ethnic_group">Ethnic Group</string>
+    <string name="hint_faculty">Faculty of</string>
     <string name="hint_first_name">First Name</string>
     <string name="hint_home_address">Home Address</string>
     <string name="hint_id_number">ID Number</string>
     <string name="hint_last_name">Last Name</string>
+    <string name="hint_qualification_name">Name of Qualification</string>
     <string name="hint_password">Password</string>
     <string name="hint_province">Province</string>
     <string name="hint_retype">Retype Password</string>

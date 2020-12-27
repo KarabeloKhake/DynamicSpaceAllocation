@@ -105,7 +105,7 @@ public class ScanCode extends AppCompatActivity {
                             tvCode.removeCallbacks(null);
                             sBarcode = barcodes.valueAt(0).email.address;
 //                            tvCode.setText(sBarcode);
-                            intent.putExtra("barcode", sBarcode);
+                            intent.putExtra("userCode", sBarcode);
                             toneGenerator.startTone(ToneGenerator.TONE_CDMA_PIP, 150);
 
                             //send the code back to the login activity
