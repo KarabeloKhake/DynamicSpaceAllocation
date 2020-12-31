@@ -19,6 +19,9 @@
     <dimen name="image_logo_top">20dp</dimen>
     <dimen name="image_logo_width">250dp</dimen>
 
+    <!--Layout Margins-->
+    <dimen name="linear_layout_top">10dp</dimen>
+
     <!--Radio Group Margins-->
 <!--    <dimen name="radio_group_left">55dp</dimen>-->
 
@@ -52,4 +55,5 @@
     <dimen name="til_top">20dp</dimen>
     <dimen name="til_user_code_top">15dp</dimen>
     <dimen name="til_width">250dp</dimen>
+    <dimen name="til_width_second">330dp</dimen>
 </resources>

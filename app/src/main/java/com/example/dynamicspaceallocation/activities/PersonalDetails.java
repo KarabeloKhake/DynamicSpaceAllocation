@@ -61,7 +61,7 @@ public class PersonalDetails extends AppCompatActivity {
 
         genderSpinner(spGender);
         raceSpinner(spRace);
-        provinces();
+        setProvinces();
 
         etCity.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -136,6 +136,8 @@ public class PersonalDetails extends AppCompatActivity {
                 ilLastName.setError(null);
                 ilProvince.setError(null);
 
+
+
                 //validate id number
                 if(Objects.requireNonNull(etIDNumber.getText()).toString().length() == 13) {
                     if (AppClass.isIDNumberValid(etIDNumber.getText().toString())) {
@@ -202,7 +204,6 @@ public class PersonalDetails extends AppCompatActivity {
 
         //set the gender list to the array
         sGenderList = getResources().getStringArray(R.array.gender_array);
-        //set the adapter
         aGender = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, sGenderList);
         //set the adapter
         spinner.setAdapter(aGender);
@@ -214,7 +215,7 @@ public class PersonalDetails extends AppCompatActivity {
                     sGender = " ";
                 } //end if
                 else {
-                    sGender = sGenderList[position];
+                    sGender = parent.getSelectedItem().toString();
                 } //end else
             } //end onItemSelected()
             @Override
@@ -231,7 +232,6 @@ public class PersonalDetails extends AppCompatActivity {
 
         //set the race list to the array
         sRaceList = getResources().getStringArray(R.array.ethnic_array);
-        //set the adapter
         aRace = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, sRaceList);
         //set the adapter
         spinner.setAdapter(aRace);
@@ -243,7 +243,7 @@ public class PersonalDetails extends AppCompatActivity {
                     sRace = " ";
                 } //end if
                 else {
-                    sRace = sRaceList[position];
+                    sRace = parent.getSelectedItem().toString();
                 } //end else
             } //end onItemSelected()
             @Override
@@ -253,22 +253,16 @@ public class PersonalDetails extends AppCompatActivity {
 
     } //end raceSpinner()
 
-    private void provinces() {
+    private void setProvinces() {
         sProvinceList = getResources().getStringArray(R.array.province_array);
         aProvince = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, sProvinceList);
 
         acProvince.setAdapter(aProvince);
-        acProvince.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        acProvince.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(parent.getSelectedItemPosition() == 0)
-                    sProvince = " ";
-                else
-                    sProvince = sProvinceList[position];
-            } //end onItemSelected()
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            } //end
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                sProvince = parent.getItemAtPosition(position).toString();
+            } //end onItemClick()
         });
     } //end setProvinces()
 

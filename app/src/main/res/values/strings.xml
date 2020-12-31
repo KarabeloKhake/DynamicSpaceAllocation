@@ -2,6 +2,7 @@
     <string name="app_name">Dynamic Space Allocation</string>
 
     <!--Buttons-->
+    <string name="button_add_course">Add Course</string>
     <string name="button_login">LOGIN</string>
     <string name="button_next">NEXT</string>
     <string name="button_reset">RESET PASSWORD</string>
@@ -12,6 +13,9 @@
     <!--Hints-->
     <string name="hint_academic_institution">Academic Institution</string>
     <string name="hint_city">City/Town</string>
+    <string name="hint_course_code">Course Code</string>
+    <string name="hint_course_description">Course Description</string>
+    <string name="hint_course_name">Course Name</string>
     <string name="hint_department">Department of</string>
     <string name="hint_education_level">Education Level</string>
     <string name="hint_email">Email Address</string>
@@ -34,6 +38,7 @@
     <string name="text_content_description">TODO</string>
     <string name="text_email">Enter your registered email address to send a password reset link.</string>
     <string name="text_library_capacity">Library Capacity</string>
+    <string name="text_list_courses">List of Courses</string>
     <string name="text_lecturer">Lecturer</string>
     <string name="text_loading">Loading…please wait</string>
     <string name="text_logging_lecturer_out">Logging lecturer out…please wait</string>

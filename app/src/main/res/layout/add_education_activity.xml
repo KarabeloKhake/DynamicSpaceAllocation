@@ -37,7 +37,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ilAcademicInstitution"
             style="@style/TextInputLayoutStyle"
-            android:layout_width="@dimen/til_width"
+            android:layout_width="@dimen/til_width_second"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/til_top"
             app:errorEnabled="true"
@@ -49,15 +49,15 @@
                 android:id="@+id/etAcademicInstitution"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/edit_text_height"
-                android:hint="@string/hint_academic_institution"
                 android:drawableStart="@drawable/ic_library"
-                android:drawablePadding="@dimen/drawable_padding"/>
+                android:drawablePadding="@dimen/drawable_padding"
+                android:hint="@string/hint_academic_institution" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ilEducationLevel"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="@dimen/til_width"
+            android:layout_width="@dimen/til_width_second"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/til_space"
             app:errorEnabled="true"
@@ -77,7 +77,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ilQualification"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="@dimen/til_width"
+            android:layout_width="@dimen/til_width_second"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/til_space"
             app:errorEnabled="true"
@@ -99,6 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/button_top"
+            android:onClick="btnSaveQualification_onClick"
             android:text="@string/button_save_qualification"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -107,7 +108,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ilFaculty"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="@dimen/til_width"
+            android:layout_width="@dimen/til_width_second"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/til_space"
             app:boxBackgroundMode="outline"
@@ -126,7 +127,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ilDepartment"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="@dimen/til_width"
+            android:layout_width="@dimen/til_width_second"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/til_space"
             app:boxBackgroundMode="outline"

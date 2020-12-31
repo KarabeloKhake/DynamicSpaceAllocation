@@ -44,7 +44,7 @@
 
     <!--Faculty Array-->
     <string-array name="faculty_array">
-        <item>Engineering Built Environment &amp; IT</item>
+        <item>Engineering, Built Environment &amp; IT</item>
         <item>Health &amp; Environment Sciences</item>
         <item>Humanities</item>
         <item>Management Sciences</item>
@@ -56,7 +56,7 @@
         <item>Communication Sciences</item>
         <item>Design &amp; Studio Art</item>
         <item>Language and Social Sciences Education</item>
-        <item>Mathematics, Science and Technology Education</item>
+        <item>Mathematics, Science &amp; Technology Education</item>
         <item>Post Graduate in Education</item>
     </string-array>
     <!--Courses Arrays-->
@@ -65,7 +65,7 @@
         <item>Doctor of Communication in Language Practice (Doct.)</item>
         <item>Language Practice (Baccalaureus)</item>
         <item>Language Practice (Adv. Dip.)</item>
-        <item>Language Practice and Media Studies (Dip.)</item>
+        <item>Language Practice &amp; Media Studies (Dip.)</item>
         <item>Master of Communication in Language Practice (Mas.)</item>
         <item>Media Studies (Adv. Dip.)</item>
     </string-array>
@@ -83,7 +83,7 @@
     </string-array>
     <!--Programmes Language and Social Sciences Education-->
     <string-array name="language_social_sciences_education_courses_array">
-        <item>Economic and Management Sciences(Bacc.)</item>
+        <item>Economic &amp; Management Sciences(Bacc.)</item>
         <item>Language Education (Bacc.)</item>
     </string-array>
     <!-- Programmes Mathematics, Science and Technology Education-->
@@ -114,8 +114,8 @@
         <item>Construction (H.Cert.)</item>
         <item>Construction Management (Bach.)</item>
         <item>Construction Management (Post Grad. Dip.)</item>
-        <item>Health and Safety Management (Bach.)</item>
-        <item>Health and Safety Management (Post Grad. Dip.)</item>
+        <item>Health &amp; Safety Management (Bach.)</item>
+        <item>Health &amp; Safety Management (Post Grad. Dip.)</item>
         <item>Quantity Surveying (Post Grad. Dip.)</item>
         <item>Quantity Surveying (Bach.)</item>
         <item>Urban Development (Post Grad. Dip.)</item>

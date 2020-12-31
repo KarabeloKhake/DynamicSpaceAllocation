@@ -17,8 +17,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.student.AddEducation"></activity>
-        <!-- Meta Data -->
+        <activity android:name=".activities.student.AddCourse"></activity>
+        <activity
+            android:name=".activities.student.AddEducation"
+            android:parentActivityName=".activities.student.StudentHome" /> <!-- Meta Data -->
         <meta-data
             android:name="com.google.android.gms.vision.DEPENDENCIES"
             android:value="barcode" /> <!-- Scan Code activity -->
