@@ -88,7 +88,7 @@ public class Login extends AppCompatActivity {
         ivRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Login.this, AddEducation.class));
+                startActivity(new Intent(Login.this, PersonalDetails.class));
             } //end onClick()
         });
     } //end onCreate()

@@ -6,9 +6,11 @@
 
     <!--Card View Margins-->
     <dimen name="card_view_layout_margin">20dp</dimen>
+    <dimen name="card_view_course">10dp</dimen>
 
     <!--Icon/Image Margins-->
     <dimen name="drawable_padding">5dp</dimen>
+    <dimen name="icon_book_height">50dp</dimen>
     <dimen name="icon_register_height">50dp</dimen>
     <dimen name="icon_register_right">77dp</dimen>
     <dimen name="icon_register_top">10dp</dimen>
@@ -33,6 +35,7 @@
     <dimen name="text_left">55dp</dimen>
     <dimen name="text_right">55dp</dimen>
     <dimen name="text_gender_top">10dp</dimen>
+    <dimen name="text_list_courses_margins">10dp</dimen>
     <dimen name="text_race_top">10dp</dimen>
     <dimen name="text_register_here_top">10dp</dimen>
     <dimen name="text_reset_top">10dp</dimen>

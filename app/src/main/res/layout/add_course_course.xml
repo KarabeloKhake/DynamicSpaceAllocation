@@ -115,6 +115,22 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnAddCourse"></LinearLayout>
+            app:layout_constraintTop_toBottomOf="@+id/btnAddCourse">
+
+            <TextView
+                android:id="@+id/tvListCourses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_list_courses_margins"
+                android:gravity="center"
+                android:text="@string/text_list_courses"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvListCourses"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

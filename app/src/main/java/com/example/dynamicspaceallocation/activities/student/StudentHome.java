@@ -1,5 +1,6 @@
 package com.example.dynamicspaceallocation.activities.student;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.animation.Animator;
@@ -21,6 +22,7 @@ import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.persistence.local.UserIdStorageFactory;
 import com.example.dynamicspaceallocation.R;
+import com.example.dynamicspaceallocation.activities.PersonalDetails;
 
 public class StudentHome extends AppCompatActivity {
 
@@ -106,7 +108,7 @@ public class StudentHome extends AppCompatActivity {
                 break;
             case R.id.update:
                 //go to another updating activity
-//                startActivity(new Intent(StudentHome.this, PersonalDetails.class));
+//                startActivityForResult(new Intent(StudentHome.this, PersonalDetails.class), UPDATE);
                 break;
         } //end switch()
 
