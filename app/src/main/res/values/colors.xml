@@ -4,6 +4,7 @@
     <color name="colorBoxStroke">#666F73</color>
     <color name="colorButtons">#455A64</color>
     <color name="colorButtonText">#302E2E</color>
+    <color name="colorCardView">#855A8C</color>
     <color name="colorIcons">#2D3842</color>
     <color name="colorPrimary">#607D8B</color>
     <color name="colorPrimaryDark">#455A64</color>

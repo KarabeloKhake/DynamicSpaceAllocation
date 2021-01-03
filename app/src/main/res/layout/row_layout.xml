@@ -8,7 +8,10 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/card_view_course">
+        android:layout_margin="@dimen/card_view_course"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@color/colorCardView">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,7 +36,9 @@
                     android:id="@+id/tvCourseName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvCourseCode"

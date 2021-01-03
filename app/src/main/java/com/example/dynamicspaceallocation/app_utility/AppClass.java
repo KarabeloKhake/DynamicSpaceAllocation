@@ -5,7 +5,10 @@ import android.util.Patterns;
 
 import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
+import com.example.dynamicspaceallocation.entities.Course;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class AppClass extends Application {
@@ -15,6 +18,7 @@ public class AppClass extends Application {
     public static final String API_KEY = "171FE1C1-AAE2-4385-B999-219715C01ECB";
     public static final String SERVER_URL =   "https://www.backendless.api";
     public static BackendlessUser user;
+    public static List<Course> courses;
 
     @Override
     public void onCreate() {

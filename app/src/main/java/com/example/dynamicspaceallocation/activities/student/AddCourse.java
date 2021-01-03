@@ -2,6 +2,8 @@ package com.example.dynamicspaceallocation.activities.student;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -14,11 +16,19 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.backendless.Backendless;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
+import com.backendless.persistence.DataQueryBuilder;
 import com.example.dynamicspaceallocation.R;
+import com.example.dynamicspaceallocation.app_utility.AppClass;
+import com.example.dynamicspaceallocation.app_utility.CourseAdapter;
+import com.example.dynamicspaceallocation.entities.Course;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class AddCourse extends AppCompatActivity {
@@ -29,7 +39,10 @@ public class AddCourse extends AppCompatActivity {
     private TextView tvLoad;
     private TextInputEditText etCourseCode, etCourseName, etCourseDescription;
     private TextInputLayout ilCourseCode, ilCourseName, ilCourseDescription;
-    private TextView tvListCourses;
+    TextView tvListCourses;
+    RecyclerView recyclerView;
+    RecyclerView.Adapter courseAdapter;
+    RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +61,35 @@ public class AddCourse extends AppCompatActivity {
         ilCourseCode = findViewById(R.id.ilCourseCode);
         ilCourseDescription = findViewById(R.id.ilCourseDescription);
         ilCourseName = findViewById(R.id.ilCourseName);
+        tvListCourses = findViewById(R.id.tvListCourses);
+        recyclerView = findViewById(R.id.rvListCourses);
+
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(layoutManager = new LinearLayoutManager(this));
+
+        //
+        if(AppClass.courses.size() > 0) {
+            //set the where clause
+            String sWhereClause = "studentNumber = '" + AppClass.user.getProperty("studentNumber") + "'";
+            DataQueryBuilder queryBuilder = DataQueryBuilder.create();
+            queryBuilder.setWhereClause(sWhereClause);
+            queryBuilder.setGroupBy("courseName");
+
+            Backendless.Persistence.of(Course.class).find(queryBuilder, new AsyncCallback<List<Course>>() {
+                @Override
+                public void handleResponse(List<Course> response) {
+                    AppClass.courses = response;
+                    //set the adapter
+                    courseAdapter = new CourseAdapter(AddCourse.this, AppClass.courses);
+                    recyclerView.setAdapter(courseAdapter);
+                } //end handleResponse()
+                @Override
+                public void handleFault(BackendlessFault fault) {
+                    Toast.makeText(AddCourse.this, "Error: " + fault.getMessage(), Toast.LENGTH_SHORT).show();
+                } //end handleFault()
+            });
+        } //end if
+
 
         etCourseCode.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
